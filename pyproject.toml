@@ -1,0 +1,12 @@
+[project]
+name = "dcs-messages-size-editor"
+version = "0.1.0"
+description = "Simple tool to edit the size of messages in the DCS UI."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.19.0",
+]
