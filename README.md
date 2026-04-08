@@ -1,6 +1,9 @@
-⚠️ This tool is in early development and has some issues that need to be fixed before it can be used by everyone. ⚠
+# WARNING
 
-(right now the script is editing more lines than it should in gameMessages.dlg)
+⚠️ This tool is in early development and has some issues that need to be fixed before it can be used by everyone.
+
+Right now the script is editing more lines than it should in gameMessages.dlg.
+I'll do a release when that's fixed.
 
 # DCS Messages Size Editor
 
