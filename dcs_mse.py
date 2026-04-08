@@ -70,8 +70,8 @@ def main():
     command_menu_path = find_file("Scripts/UI/RadioCommandDialogPanel/CommandMenu.lua", root)
 
     print("Files found at:")
-    print(f"  {game_messages_path}")
-    print(f"  {command_menu_path}")
+    print(game_messages_path)
+    print(command_menu_path)
 
     ask_value_and_apply(
         "Enter the desired font size for game messages.\n"
