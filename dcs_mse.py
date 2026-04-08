@@ -19,24 +19,28 @@ def find_file(subpath, root=Path(".")):
 
 def edit_game_messages(path, font_size):
     """Set all fontSize values in gameMessages.dlg to font_size."""
-    text = path.read_text()
+    with open(path, 'r', newline='') as f:
+        text = f.read()
     text = re.sub(
         r'(\["fontSize"\] = )\d+(,)',
         rf'\g<1>{font_size}\g<2>  -- modified by dcs_mse.exe',
         text
     )
-    path.write_text(text)
+    with open(path, 'w', newline='') as f:
+        f.write(text)
 
 
 def edit_command_menu(path, font_scale):
     """Set the radio command menu font scale multiplier in CommandMenu.lua."""
-    text = path.read_text()
+    with open(path, 'r', newline='') as f:
+        text = f.read()
     text = re.sub(
         r'(fontScale = fontScale \* )\d+\.?\d*',
         rf'\g<1>{font_scale}  -- modified by dcs_mse.exe',
         text
     )
-    path.write_text(text)
+    with open(path, 'w', newline='') as f:
+        f.write(text)
 
 
 def ask_value_and_apply(prompt, default, converter, apply_func, file_path):
