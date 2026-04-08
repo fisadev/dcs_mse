@@ -2,12 +2,14 @@
 
  Simple tool to edit the size of messages in the DCS UI.
 
+ TODO add screenshot of DCS messages
+
 # Installation
 
 No installation is required.
 Just [download the latest release](https://github.com/fisadev/dcs_mse/releases), place it in your DCS installation folder (not in Saved Games, but the game installation folder), and then run the executable. 
 
-TODO: include screenshot
+TODO: add screenshot of the tool
 
 # Paranoid mode
 
