@@ -63,7 +63,7 @@ def main():
     elif len(sys.argv) == 2:
         root = Path(sys.argv[1])
     else:
-        print("Usage: dcs_mse.py [root_directory]")
+        print("Usage: dcs_mse.py [dcs_root_directory]")
         sys.exit(1)
 
     game_messages_path = find_file("Scripts/UI/gameMessages.dlg", root)
