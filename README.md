@@ -11,7 +11,7 @@ I'll do a release when that's fixed.
 
  TODO add screenshot of DCS messages
 
-# Installation
+# How to use
 
 No installation is required.
 Just [download the latest release](https://github.com/fisadev/dcs_mse/releases), place it in your DCS installation folder (not in Saved Games, but the game installation folder), and then run the executable. 
