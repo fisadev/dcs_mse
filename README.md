@@ -1,3 +1,7 @@
+⚠️ This tool is in early development and has some issues that need to be fixed before it can be used by everyone. ⚠
+
+(right now the script is editing more lines than it should in gameMessages.dlg)
+
 # DCS Messages Size Editor
 
  Simple tool to edit the size of messages in the DCS UI.
