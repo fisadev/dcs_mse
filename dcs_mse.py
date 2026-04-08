@@ -3,10 +3,6 @@ import sys
 from pathlib import Path
 
 
-DEFAULT_GAME_MESSAGES_FONT_SIZE = 20
-DEFAULT_COMMAND_MENU_FONT_SCALE = 1.75
-
-
 def find_file(subpath, root=Path(".")):
     """Find a file with a path that ends like the specified path."""
     subpath = Path(subpath)
@@ -17,35 +13,20 @@ def find_file(subpath, root=Path(".")):
     sys.exit(1)
 
 
-def edit_game_messages(path, font_size):
-    """Set all fontSize values in gameMessages.dlg to font_size."""
+def edit_file(path, value, pattern, replacement_template):
+    """Apply a regex substitution to a file, preserving its original line endings."""
     with open(path, 'r', newline='') as f:
         text = f.read()
-    text = re.sub(
-        r'(\["fontSize"\] = )\d+(,)',
-        rf'\g<1>{font_size}\g<2>  -- modified by dcs_mse.exe',
-        text
-    )
+    text = re.sub(pattern, replacement_template.format(value=value), text)
     with open(path, 'w', newline='') as f:
         f.write(text)
 
 
-def edit_command_menu(path, font_scale):
-    """Set the radio command menu font scale multiplier in CommandMenu.lua."""
-    with open(path, 'r', newline='') as f:
-        text = f.read()
-    text = re.sub(
-        r'(fontScale = fontScale \* )\d+\.?\d*',
-        rf'\g<1>{font_scale}  -- modified by dcs_mse.exe',
-        text
-    )
-    with open(path, 'w', newline='') as f:
-        f.write(text)
-
-
-def ask_value_and_apply(prompt, default, converter, apply_func, file_path):
+def ask_value_and_apply(prompt, default, value_type, pattern, replacement_template, file_path):
     """
-    Ask the user for input, convert it to a number, and apply it using the provided function.
+    Ask the user for input, convert it to a number, and apply it into a file using the provided
+    regex pattern and replacement template.
+
     If the user enters an empty string, the current value is kept.
     If the user enters 'r', the value is reset to the default.
     """
@@ -63,12 +44,12 @@ def ask_value_and_apply(prompt, default, converter, apply_func, file_path):
         value = default
     else:
         try:
-            value = converter(value)
+            value = value_type(value)
         except ValueError:
             print("Invalid number:", value)
             sys.exit(1)
 
-    apply_func(file_path, value)
+    edit_file(file_path, value, pattern, replacement_template)
 
     print("Value applied to", file_path)
 
@@ -95,19 +76,21 @@ def main():
     ask_value_and_apply(
         "Enter the desired font size for game messages.\n"
         "This affects messages that usually appear in the top corners of DCS, like subtitles, mission messages, etc.",
-        DEFAULT_GAME_MESSAGES_FONT_SIZE,
-        int,
-        edit_game_messages,
-        game_messages_path,
+        default=20,
+        value_type=int,
+        pattern=r'(\["fontSize"\] = )\d+(,)',
+        replacement_template=r'\g<1>{value}\g<2>  -- modified by dcs_mse.exe',
+        file_path=game_messages_path,
     )
 
     ask_value_and_apply(
         "Enter the desired font scale multiplier for the radio command menu.\n"
         "This affects the radio menu font size.",
-        DEFAULT_COMMAND_MENU_FONT_SCALE,
-        float,
-        edit_command_menu,
-        command_menu_path,
+        default=1.75,
+        value_type=float,
+        pattern=r'(fontScale = fontScale \* )\d+\.?\d*',
+        replacement_template=r'\g<1>{value}  -- modified by dcs_mse.exe',
+        file_path=command_menu_path,
     )
 
 
