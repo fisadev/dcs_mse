@@ -15,10 +15,10 @@ def find_file(subpath, root=Path(".")):
 
 def edit_file(path, value, pattern, replacement_template):
     """Apply a regex substitution to a file, preserving its original line endings."""
-    with open(path, 'r', newline='') as f:
+    with open(path, 'r', newline='', encoding='utf-8') as f:
         text = f.read()
     text = re.sub(pattern, replacement_template.format(value=value), text)
-    with open(path, 'w', newline='') as f:
+    with open(path, 'w', newline='', encoding='utf-8') as f:
         f.write(text)
 
 
