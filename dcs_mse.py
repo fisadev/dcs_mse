@@ -32,7 +32,7 @@ def ask_value_and_apply(prompt, default, value_type, pattern, replacement_templa
     """
     print()
     print(prompt)
-    print("(empty to keep the current value, or 'r' to reset to DCS defaults)")
+    print("(empty to keep the current value, or 'r' to reset to DCS default:", default, ")")
     value = input("Value: ").strip().lower()
 
     if not value:
@@ -79,7 +79,7 @@ def main():
         default=20,
         value_type=int,
         pattern=r'(\["fontSize"\] = )\d+(,)',
-        replacement_template=r'\g<1>{value}\g<2>  -- modified by dcs_mse.exe',
+        replacement_template=r'\g<1>{value}\g<2>',
         file_path=game_messages_path,
     )
 
@@ -89,7 +89,7 @@ def main():
         default=1.75,
         value_type=float,
         pattern=r'(fontScale = fontScale \* )\d+\.?\d*',
-        replacement_template=r'\g<1>{value}  -- modified by dcs_mse.exe',
+        replacement_template=r'\g<1>{value}',
         file_path=command_menu_path,
     )
 
