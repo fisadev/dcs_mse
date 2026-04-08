@@ -7,8 +7,6 @@
 No installation is required.
 Just [download the latest release](https://github.com/fisadev/dcs_mse/releases), place it in your DCS installation folder (not in Saved Games, but the game installation folder), and then run the executable. 
 
-It will show you the current value of the font sizes, and allow you to specify new values for them:
-
 TODO: include screenshot
 
 # Paranoid mode
