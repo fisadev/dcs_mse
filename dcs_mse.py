@@ -3,6 +3,9 @@ import sys
 from pathlib import Path
 
 
+VERSION = "v0.1.0"
+
+
 def find_file(subpath, root=Path(".")):
     """Find a file with a path that ends like the specified path."""
     subpath = Path(subpath)
@@ -69,6 +72,9 @@ def main():
     game_messages_path = find_file("Scripts/UI/gameMessages.dlg", root)
     command_menu_path = find_file("Scripts/UI/RadioCommandDialogPanel/CommandMenu.lua", root)
 
+    print("DCS Messages Size Editor", VERSION)
+
+    print()
     print("Files found at:")
     print(game_messages_path)
     print(command_menu_path)
