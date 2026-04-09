@@ -7,7 +7,7 @@
 # How to use
 
 No installation is required.
-Just [download the latest release](https://github.com/fisadev/dcs_mse/releases), place it in your DCS installation folder (not in Saved Games, but the game installation folder), and then run the executable. 
+Just [download the latest released dcs_mse.exe](https://github.com/fisadev/dcs_mse/releases), place it in your DCS installation folder (not in Saved Games, but the game installation folder), and then run the executable. 
 
 TODO: add screenshot of the tool
 
