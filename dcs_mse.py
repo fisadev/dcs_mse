@@ -78,8 +78,8 @@ def main():
         "This affects messages that usually appear in the top corners of DCS, like subtitles, mission messages, etc.",
         default=20,
         value_type=int,
-        pattern=r'(\["fontSize"\] = )\d+(,)',
-        replacement_template=r'\g<1>{value}\g<2>',
+        pattern=r'(\["fontSize"\] = )(?:20|\d+(?=,\s*-- dcs_mse)),(?: -- dcs_mse)?',
+        replacement_template=r'\g<1>{value},  -- dcs_mse',
         file_path=game_messages_path,
     )
 
@@ -88,8 +88,8 @@ def main():
         "This affects the radio menu font size.",
         default=1.75,
         value_type=float,
-        pattern=r'(fontScale = fontScale \* )\d+\.?\d*',
-        replacement_template=r'\g<1>{value}',
+        pattern=r'(fontScale = fontScale \* )(?:1\.75|[\d.]+(?=\s*-- dcs_mse))(?:\s*-- dcs_mse)?',
+        replacement_template=r'\g<1>{value}  -- dcs_mse',
         file_path=command_menu_path,
     )
 
