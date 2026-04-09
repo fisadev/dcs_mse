@@ -2,7 +2,7 @@
 
  Simple tool to edit the size of messages in the DCS UI.
 
- TODO add screenshot of DCS messages
+![readme_screenshot](./screenshot.png)
 
 # How to use
 
