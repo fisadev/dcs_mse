@@ -1,6 +1,6 @@
 # DCS Messages Size Editor
 
- Simple tool to edit the size of messages in the DCS UI.
+ Very simple tool to edit the size of messages in the DCS UI, useful specially for VR users.
 
 ![readme_screenshot_of_dcs](./screenshot_dcs.png)
 
