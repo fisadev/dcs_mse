@@ -2,7 +2,9 @@
 
  Simple tool to edit the size of messages in the DCS UI.
 
-![readme_screenshot](./screenshot.png)
+![readme_screenshot_of_dcs](./screenshot_dcs.png)
+
+![readme_screenshot_of_the_app](./screenshot_app.png)
 
 # How to use
 
