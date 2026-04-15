@@ -21,3 +21,9 @@ Run it using Python 3.10 or later and [UV](https://docs.astral.sh/uv/getting-sta
 ```bash
 uv run dcs_mse.py "C:\Program Files\Eagle Dynamics\DCS World"
 ```
+
+# Uninstall and undo all changes
+
+To revert all changes just run a DCS repair (or Steam repair if installed via Steam).
+
+To uninstall the tool, just delete the executable (no extra files or configs are created by it).
